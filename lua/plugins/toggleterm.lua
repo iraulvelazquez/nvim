@@ -36,7 +36,6 @@ return {
 			elseif filetype == "python" then
 				compile_cmd = string.format("python -m py_compile '%s'", filename)
 			elseif filetype == "tex" then
-				-- Para LaTeX, muestra la salida completa
 				compile_cmd = string.format("latexmk -pdf -interaction=nonstopmode -synctex=1 '%s'", filename)
 			else
 				vim.notify("Tipo de archivo no soportado para compilación", vim.log.levels.ERROR)
@@ -46,11 +45,10 @@ return {
 			local compile_term = Terminal:new({
 				cmd = compile_cmd,
 				direction = "float",
-				close_on_exit = false, -- Mantener abierta para ver errores
+				close_on_exit = false,
 				on_exit = function(_, _, exit_code)
 					if exit_code == 0 then
 						vim.notify("✓ Compilación exitosa", vim.log.levels.INFO)
-						-- Si es LaTeX, abre Zathura automáticamente
 						if filetype == "tex" then
 							local pdf = basename .. ".pdf"
 							if vim.fn.filereadable(pdf) == 1 then

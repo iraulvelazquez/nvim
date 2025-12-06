@@ -7,8 +7,7 @@ return {
 			python = { "ruff" },
 			c = { "cppcheck" },
 			cpp = { "cpplint" },
-			-- LaTeX no necesita linter adicional, ltex ya lo hace
-			-- Lua tampoco, lua_ls ya hace diagnósticos
+			-- lua y latex ya toenen linters integrados
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

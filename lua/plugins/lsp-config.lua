@@ -29,7 +29,6 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					--  lua_ls en el sistema
 					"clangd",
 					"cmake",
 					"rust_analyzer",
@@ -63,7 +62,7 @@ return {
 						build = {
 							executable = "latexmk",
 							args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-							onSave = true, -- Compila al guardar
+							onSave = true,
 						},
 						forwardSearch = {
 							executable = "zathura",
