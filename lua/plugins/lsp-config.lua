@@ -88,16 +88,16 @@ return {
 				local pdf = vim.fn.expand("%:r") .. ".pdf"
 				if vim.fn.filereadable(pdf) == 1 then
 					vim.fn.jobstart({ "zathura", pdf }, { detach = true })
-					vim.notify("📖 Abriendo " .. pdf, vim.log.levels.INFO)
+					vim.notify(" Abriendo... " .. pdf, vim.log.levels.INFO)
 				else
-					vim.notify("❌ PDF no encontrado: " .. pdf, vim.log.levels.ERROR)
+					vim.notify(" PDF no encontrado: " .. pdf, vim.log.levels.ERROR)
 				end
 			end, { desc = "Open PDF with Zathura" })
 
 			vim.keymap.set("n", "<leader>v", function()
 				local clients = vim.lsp.get_clients({ bufnr = 0, name = "texlab" })
 				if #clients == 0 then
-					vim.notify("⚠ texlab no está activo", vim.log.levels.WARN)
+					vim.notify(" texlab no está activo ", vim.log.levels.WARN)
 					return
 				end
 
@@ -108,7 +108,7 @@ return {
 
 				clients[1].request("textDocument/forwardSearch", params, function(err, _)
 					if err then
-						vim.notify("❌ Error en forward search: " .. vim.inspect(err), vim.log.levels.ERROR)
+						vim.notify(" Error en forward search: " .. vim.inspect(err), vim.log.levels.ERROR)
 					end
 				end, 0)
 			end, { desc = "Forward search to PDF" })
