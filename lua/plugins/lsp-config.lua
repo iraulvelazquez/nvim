@@ -13,6 +13,7 @@ return {
 					"clang-format",
 					"latexindent",
 					"cpplint",
+          "prettier",
 					-- cppcheck en el sistema
 				},
 				auto_update = false,
@@ -34,6 +35,7 @@ return {
 					"rust_analyzer",
 					"pylsp",
 					"texlab",
+          "ts_ls",
 				},
 			})
 		end,
@@ -77,12 +79,14 @@ return {
 			vim.lsp.config("rust_analyzer", { capabilities = capabilities })
 			vim.lsp.config("pylsp", { capabilities = capabilities })
 			vim.lsp.config("texlab", { capabilities = capabilities })
+      vim.lsp.config("ts_ls", { capabilities = capabilities })
 			vim.lsp.enable("clangd")
 			vim.lsp.enable("cmake")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("pylsp")
 			vim.lsp.enable("texlab")
 			vim.lsp.enable("lua_ls")
+      vim.lsp.enable("ts_ls")
 			-- Zathura
 			vim.keymap.set("n", "<leader>z", function()
 				local pdf = vim.fn.expand("%:r") .. ".pdf"

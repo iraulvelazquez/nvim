@@ -30,9 +30,9 @@ return {
 			local compile_cmd = ""
 
 			if filetype == "c" then
-				compile_cmd = string.format("gcc -g -Wall -Wextra '%s' -o '%s'", filename, basename)
+				compile_cmd = string.format("gcc -g -Wall -Wextra '%s' -o '%s' -lm", filename, basename)
 			elseif filetype == "cpp" then
-				compile_cmd = string.format("g++ -g -Wall -Wextra '%s' -o '%s'", filename, basename)
+				compile_cmd = string.format("g++ -g -Wall -Wextra '%s' -o '%s' -lm", filename, basename)
 			elseif filetype == "python" then
 				compile_cmd = string.format("python -m py_compile '%s'", filename)
 			elseif filetype == "tex" then
