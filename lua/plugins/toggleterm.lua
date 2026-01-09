@@ -6,7 +6,7 @@ return {
 			size = 20,
 			open_mapping = [[<c-\>]],
 			hide_numbers = true,
-			shade_terminals = true,
+			shade_terminals = false,
 			start_in_insert = true,
 			insert_mappings = true,
 			terminal_mappings = true,
@@ -17,6 +17,14 @@ return {
 			float_opts = {
 				border = "curved",
 				winblend = 0,
+			},
+			highlights = {
+				NormalFloat = {
+					link = "Normal",
+				},
+				FloatBorder = {
+					link = "Normal",
+				},
 			},
 		})
 
@@ -95,6 +103,6 @@ return {
 		vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit to terminal normal mode" })
 		vim.keymap.set("n", "<leader>c", compile, { desc = "Compile current file" })
 		vim.keymap.set("n", "<leader>r", run, { desc = "Run current file" })
-		vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+		vim.keymap.set("n", "<leader>tg", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 	end,
 }

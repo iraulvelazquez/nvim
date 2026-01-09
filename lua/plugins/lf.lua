@@ -7,6 +7,11 @@ return {
 		require("lf").setup({
 			escape_quit = false,
 			border = "rounded",
+			winblend = 0,
+			highlights = {
+				NormalFloat = { link = "Normal" },
+				FloatBorder = { link = "FloatBorder" },
+			},
 		})
 
 		vim.keymap.set("n", "<leader>lf", "<Cmd>Lf<CR>")
