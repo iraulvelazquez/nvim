@@ -18,5 +18,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+vim.opt.clipboard = "unnamedplus"
 require("vim-opt")
 require("lazy").setup("plugins")
